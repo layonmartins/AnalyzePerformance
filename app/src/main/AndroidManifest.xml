@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".activity_classic_layout2" />
         <activity android:name=".activity_classic_layout3" />
-        <activity android:name=".activity_classic_layout4"></activity>
+        <activity android:name=".activity_classic_layout4" />
+        <activity android:name=".activity_classic_layout5"></activity>
     </application>
 
 </manifest>
