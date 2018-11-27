@@ -8,12 +8,16 @@
     android:layout_marginTop="10dp">
 
     <ImageView
+        android:id="@+id/imageViewID"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.25"
         android:layout_marginLeft="10dp"
         android:src="@drawable/boy"
         android:adjustViewBounds="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
         />
     <LinearLayout
         android:layout_width="0dp"
@@ -36,6 +40,7 @@
                 android:textStyle="bold"
                 />
             <TextView
+                android:id="@+id/nameTextViewID"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -65,11 +70,12 @@
                     android:textStyle="bold"
                     android:textSize="15sp" />
                 <TextView
+                    android:id="@+id/natlTextViewID"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text=" Brazilian"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:singleLine="true"/>
             </LinearLayout>
 
@@ -84,8 +90,10 @@
                     android:layout_height="wrap_content"
                     android:text="Age:"
                     android:textStyle="bold"
-                    android:textSize="15sp" />
+                    android:textSize="14sp"
+                    android:singleLine="true"/>
                 <TextView
+                    android:id="@+id/ageTextViewID"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -104,8 +112,9 @@
                     android:layout_height="wrap_content"
                     android:text="Occ.:"
                     android:textStyle="bold"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
                 <TextView
+                    android:id="@+id/occTextViewID"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"

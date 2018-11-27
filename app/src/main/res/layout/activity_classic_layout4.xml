@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.3"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/girl_skintone"
+                android:src="@drawable/girl"
                 android:adjustViewBounds="true"
                 />
             <LinearLayout

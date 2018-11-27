@@ -1,7 +1,14 @@
 package com.example.android.analyzeperformance;
 
 import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.Locale;
 
 public class CustomListAdapter extends ArrayAdapter {
 
@@ -36,4 +43,25 @@ public class CustomListAdapter extends ArrayAdapter {
         this.occArray = occArrayParam;
     }
 
+    public View getView(int position, View view, ViewGroup parent){
+
+        LayoutInflater inflater = context.getLayoutInflater();
+        View rowView = inflater.inflate(R.layout.linearlayout_row, null, true);
+
+        //this code gets references to objects in the linearlayout_row.xml file
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.imageViewID);
+        TextView nameTextField = (TextView) rowView.findViewById(R.id.nameTextViewID);
+        TextView natlTextField = (TextView) rowView.findViewById(R.id.natlTextViewID);
+        TextView ageTextField = (TextView) rowView.findViewById(R.id.ageTextViewID);
+        TextView occTextField = (TextView) rowView.findViewById(R.id.occTextViewID);
+
+        //this code sets the values of the objects to values from the arrays
+        imageView.setImageResource(imageIDarray[position]);
+        nameTextField.setText(nameArray[position]);
+        natlTextField.setText(natlArray[position]);
+        ageTextField.setText(Integer.toString(ageArray[position]));
+        occTextField.setText(occArray[position]);
+
+        return rowView;
+    }
 }
