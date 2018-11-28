@@ -5,26 +5,29 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical|center_horizontal"
-    android:layout_marginTop="10dp">
+    >
 
     <ImageView
         android:id="@+id/imageViewID"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:src="@drawable/boy"
         android:adjustViewBounds="true"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingRight="10dp"
+        android:maxHeight="80dp"
+
         />
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:layout_marginLeft="5dp">
+        android:layout_marginRight="5dp"
+        android:layout_gravity="left|center"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,10 +35,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name:"
+                android:layout_marginRight="5dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
@@ -58,39 +61,39 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="0.85"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="10dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.6"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:text="Natl.:"
                     android:textStyle="bold"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
                 <TextView
                     android:id="@+id/natlTextViewID"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text=" Brazilian"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:singleLine="true"/>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:text="Age:"
                     android:textStyle="bold"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:singleLine="true"/>
                 <TextView
                     android:id="@+id/ageTextViewID"
@@ -98,7 +101,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text=" 28"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -107,19 +110,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.5"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:text="Occ.:"
                     android:textStyle="bold"
-                    android:textSize="14sp" />
+                    android:textSize="13sp" />
                 <TextView
                     android:id="@+id/occTextViewID"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Analyst"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:singleLine="true"/>
             </LinearLayout>
         </LinearLayout>

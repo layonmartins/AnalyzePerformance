@@ -30,6 +30,8 @@ public class CustomListAdapter extends ArrayAdapter {
     //to store the list of occupation
     private final String[] occArray;
 
+
+
     public CustomListAdapter(Activity context, Integer[] imageIDarrayParam, String[] nameArrayParam,
                              String[] natlArrayParam,  Integer[] ageArrayParam, String[] occArrayParam){
 
