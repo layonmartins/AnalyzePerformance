@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
 import java.util.Locale;
 
 public class CustomListAdapter extends ArrayAdapter {
@@ -15,34 +16,21 @@ public class CustomListAdapter extends ArrayAdapter {
     //to reference the Activity
     private final Activity context;
 
-    //to store the images
-    private final Integer[] imageIDarray;
-
-    //to store the list of countries
-    private final String[] nameArray;
-
-    //to store the list of nationality
-    private final String[] natlArray;
-
-    //to store the list of age
-    private final Integer[] ageArray;
-
-    //to store the list of occupation
-    private final String[] occArray;
+    //to store the
+    private final List<Employee> employees;
 
 
 
-    public CustomListAdapter(Activity context, Integer[] imageIDarrayParam, String[] nameArrayParam,
-                             String[] natlArrayParam,  Integer[] ageArrayParam, String[] occArrayParam){
-
-        super(context, R.layout.linearlayout_row, nameArrayParam);
+    public CustomListAdapter(Activity context, List<Employee> employees){
+        super(context, R.layout.linearlayout_row);
 
         this.context = context;
-        this.imageIDarray = imageIDarrayParam;
-        this.nameArray = nameArrayParam;
-        this.natlArray = natlArrayParam;
-        this.ageArray = ageArrayParam;
-        this.occArray = occArrayParam;
+        this.employees = employees;
+    }
+
+    @Override
+    public int getCount() {
+        return 1000;
     }
 
     public View getView(int position, View view, ViewGroup parent){
@@ -58,11 +46,11 @@ public class CustomListAdapter extends ArrayAdapter {
         TextView occTextField = (TextView) rowView.findViewById(R.id.occTextViewID);
 
         //this code sets the values of the objects to values from the arrays
-        imageView.setImageResource(imageIDarray[position]);
-        nameTextField.setText(nameArray[position]);
-        natlTextField.setText(natlArray[position]);
-        ageTextField.setText(Integer.toString(ageArray[position]));
-        occTextField.setText(occArray[position]);
+        imageView.setImageResource(employees.get(position).getImage());
+        nameTextField.setText(employees.get(position).getName());
+        natlTextField.setText(employees.get(position).getNatl());
+        ageTextField.setText(Integer.toString(employees.get(position).getAge()));
+        occTextField.setText(employees.get(position).getOcc());
 
         return rowView;
     }

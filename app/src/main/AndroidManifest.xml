@@ -16,10 +16,10 @@
         <activity android:name=".activity_classic_layout3" />
         <activity android:name=".activity_classic_layout4" />
         <activity android:name=".activity_classic_layout5" />
-        <activity android:name=".LinearLayout">
+        <activity android:name=".LinearLayout"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
