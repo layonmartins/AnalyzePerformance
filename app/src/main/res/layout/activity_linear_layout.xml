@@ -47,15 +47,21 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_margin="10dp">
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button A"
-            android:layout_marginRight="30dp"/>
-        <Button
+            android:text="Number: "/>
+        <EditText
+            android:id="@+id/edtNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button B"/>
+            android:layout_marginRight="30dp"
+            android:inputType="number"/>
+        <Button
+            android:id="@+id/btnScroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scroll Down"/>
     </LinearLayout>
 
 </LinearLayout>

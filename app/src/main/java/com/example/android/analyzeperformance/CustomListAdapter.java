@@ -21,6 +21,8 @@ public class CustomListAdapter extends ArrayAdapter {
 
 
 
+
+
     public CustomListAdapter(Activity context, List<Employee> employees){
         super(context, R.layout.linearlayout_row);
 
@@ -30,7 +32,7 @@ public class CustomListAdapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
-        return 1000;
+        return employees.size();
     }
 
     public View getView(int position, View view, ViewGroup parent){
