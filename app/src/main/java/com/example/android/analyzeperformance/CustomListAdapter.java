@@ -23,8 +23,8 @@ public class CustomListAdapter extends ArrayAdapter {
 
 
 
-    public CustomListAdapter(Activity context, List<Employee> employees){
-        super(context, R.layout.linearlayout_row);
+    public CustomListAdapter(Activity context, List<Employee> employees, int layout){
+        super(context, layout);
 
         this.context = context;
         this.employees = employees;

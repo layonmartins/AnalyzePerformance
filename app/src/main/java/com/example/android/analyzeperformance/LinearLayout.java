@@ -47,15 +47,28 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
     }
 
     //Generate the list employees example, setAdapter and call the scrolldown method
-    private void generateList(){
+    private void generateList(int layout){
+
         EditText editText = (EditText) findViewById(R.id.edtNumber);
         int n = Integer.parseInt(editText.getText().toString());
         List<Employee> employees = getEmployees(n);
-        CustomListAdapter myAdapter = new CustomListAdapter(this, employees);
+        CustomListAdapter myAdapter = new CustomListAdapter(this, employees, getLayout(layout));
         listView = (ListView) findViewById(R.id.listViewID);
         listView.setAdapter(myAdapter);
         //call the scrolldown method
+    }
 
+    private int getLayout(int layout){
+        int returnLayout = 0;
+        switch (layout){
+            case 0: returnLayout = R.layout.linearlayout_row;
+            break;
+            case 1: returnLayout = R.layout.linearlayout_row; //insert here the relativelayout_row
+            break;
+            case 2: returnLayout =  R.layout.linearlayout_row; //insert here the constraintlayout_row
+            break;
+        }
+        return returnLayout;
     }
 
     //scrolldown the list until final
@@ -79,13 +92,13 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
         //Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        
+
         final Button button = findViewById(R.id.btnScroll);
         button.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
 
-                generateList();
+                generateList(layout);
             }
         });
 
