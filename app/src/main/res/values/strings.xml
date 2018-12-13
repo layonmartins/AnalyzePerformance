@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AnalyzePerformance</string>
+    <string-array name="layouts_array">
+        <item>LinearLayout</item>
+        <item>RelativeLayout</item>
+        <item> ConstraintLayout </item>
+    </string-array>
 </resources>

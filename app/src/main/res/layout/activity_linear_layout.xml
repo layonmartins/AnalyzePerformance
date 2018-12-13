@@ -7,15 +7,16 @@
     tools:context=".LinearLayout"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Linear_Layout"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        />
+        android:layout_gravity="right"
+        android:layout_margin="5dp"
+        android:textSize="26sp"
+        >
+
+    </Spinner>
 
     <ImageView
         android:id="@+id/image"
@@ -50,13 +51,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Number: "/>
+            android:text="Number: "
+            android:textSize="20sp"/>
         <EditText
             android:id="@+id/edtNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:textSize="24sp"
+            android:text="10"
+            />
         <Button
             android:id="@+id/btnScroll"
             android:layout_width="wrap_content"
