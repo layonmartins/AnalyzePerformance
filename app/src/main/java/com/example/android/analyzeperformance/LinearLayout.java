@@ -1,11 +1,13 @@
 package com.example.android.analyzeperformance;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,11 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
     int n = 0;
     //EditText to the number of employees
     EditText editText;
+    //adapter to generate list
+    CustomListAdapter myAdapter;
+    //start time
+    long startTime = 0l;
+
 
     //Array info examples
     Integer[] imageArray = {R.drawable.boy, R.drawable.women, R.drawable.girl};
@@ -59,7 +67,7 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
         editText = (EditText) findViewById(R.id.edtNumber);
         n = Integer.parseInt(editText.getText().toString());
         List<Employee> employees = getEmployees(n);
-        CustomListAdapter myAdapter = new CustomListAdapter(this, employees, getLayout(layout));
+        myAdapter = new CustomListAdapter(this, employees, getLayout(layout));
         listView = (ListView) findViewById(R.id.listViewID);
         listView.setAdapter(myAdapter);
     }
@@ -92,6 +100,8 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
         //Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
+
+
         //first called to generate a List
         generateList(layout_ID);
 
@@ -118,12 +128,48 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
         button.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
+                //save start time
+                startTime = System.nanoTime();
 
                 listView.smoothScrollToPosition(n);
             }
         });
 
+        //Listening if the listView arrived at the last item:
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE
+                        && (listView.getLastVisiblePosition() - listView.getHeaderViewsCount() -
+                        listView.getFooterViewsCount()) >= (myAdapter.getCount() - 1)) {
+
+                    // Now your listview has hit the bottom
+                    //save end time
+                    long endTime = System.nanoTime();
+                    long totalTime = endTime - startTime;
+                    double seconds = (double)totalTime / 1_000_000_000.00;
+                    //show the totalTime
+                    //create a toast msg
+                    Context context = getApplicationContext();
+                    CharSequence text = "Scroll finshed at: ";
+                    int duration = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, text + Double.toString(seconds) + "seconds", duration);
+                    toast.show();
+
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
+
     }
+
+
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
