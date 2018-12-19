@@ -18,8 +18,8 @@
         android:paddingBottom="10dp"
         android:paddingRight="10dp"
         android:maxHeight="80dp"
-
         />
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name:"
+                android:text="NameL:"
                 android:layout_marginRight="5dp"
                 android:textSize="20sp"
                 android:textStyle="bold"

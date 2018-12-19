@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/boy"
+        android:adjustViewBounds="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:maxHeight="80dp"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NameR:"
+        android:layout_marginRight="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/imageViewID"
+        android:layout_marginTop="15dp"
+        />
+
+    <TextView
+        android:id="@+id/nameTextViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employee 1"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/name"
+        android:layout_alignBottom="@id/name"
+        />
+
+    <TextView
+        android:id="@+id/natl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="Natl.:"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:layout_toRightOf="@+id/imageViewID"
+        android:layout_below="@+id/name"/>
+
+    <TextView
+        android:id="@+id/natlTextViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brazilian"
+        android:textSize="13sp"
+        android:singleLine="true"
+        android:layout_toRightOf="@id/natl"
+        android:layout_alignBottom="@id/natl"/>
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="  Age:"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:singleLine="true"
+        android:layout_toRightOf="@id/natlTextViewID"
+        android:layout_alignBottom="@id/natlTextViewID"
+        />
+
+    <TextView
+        android:id="@+id/ageTextViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="28"
+        android:textSize="13sp"
+        android:layout_toRightOf="@id/age"
+        android:layout_alignBottom="@id/age"
+        />
+
+    <TextView
+        android:id="@+id/occ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="  Occ.:"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:layout_toRightOf="@id/ageTextViewID"
+        android:layout_alignBottom="@id/ageTextViewID"
+        />
+
+    <TextView
+        android:id="@+id/occTextViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Analyst"
+        android:textSize="13sp"
+        android:singleLine="true"
+        android:layout_toRightOf="@id/occ"
+        android:layout_alignBottom="@id/occ"
+        />
+
+</RelativeLayout>

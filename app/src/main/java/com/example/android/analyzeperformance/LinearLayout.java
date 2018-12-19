@@ -20,7 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinearLayout extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class LinearLayout extends AppCompatActivity {
 
     //Int layout
     //Linear = 0, Relative = 1, Constraint = 2
@@ -77,7 +77,7 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
         switch (layout){
             case 0: returnLayout = R.layout.linearlayout_row;
             break;
-            case 1: returnLayout = R.layout.linearlayout_row; //insert here the relativelayout_row
+            case 1: returnLayout = R.layout.relativelayout_row;
             break;
             case 2: returnLayout =  R.layout.linearlayout_row; //insert here the constraintlayout_row
             break;
@@ -90,9 +90,11 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear_layout);
 
+        //first called to generate a List
+        generateList(layout_ID);
+
         //Config the spinner layout:
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
                 (this, R.array.layouts_array, R.layout.my_spinner);
         //Specify the layout to use when the list of choices appears
@@ -100,10 +102,24 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
         //Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
+        //When user selected the layout in spinner
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                //An item was selected. You can retrieve the selected item using parent.getItemAtPosition(pos)
+                layout_ID = position;
+                //generate list always user select the layout in spinner
+                generateList(layout_ID);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
 
 
-        //first called to generate a List
-        generateList(layout_ID);
 
         //generate list when user input the number of employees
         editText.setOnEditorActionListener(new EditText.OnEditorActionListener(){
@@ -130,7 +146,6 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v){
                 //save start time
                 startTime = System.nanoTime();
-
                 listView.smoothScrollToPosition(n);
             }
         });
@@ -154,7 +169,7 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
                     Context context = getApplicationContext();
                     CharSequence text = "Scroll finshed at: ";
                     int duration = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, text + Double.toString(seconds) + "seconds", duration);
+                    Toast toast = Toast.makeText(context, text + Double.toString(seconds) + " s", duration);
                     toast.show();
 
                 }
@@ -168,19 +183,6 @@ public class LinearLayout extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
-        //An item was selected. You can retrieve the selected item using parent.getItemAtPosition(pos)
-        layout_ID = pos;
-
-    }
-    @Override
-    public void onNothingSelected(AdapterView<?> parent){
-        //Another interface callback
-    }
 
 }
 

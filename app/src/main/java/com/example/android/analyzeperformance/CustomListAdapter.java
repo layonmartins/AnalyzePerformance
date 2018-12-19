@@ -19,6 +19,9 @@ public class CustomListAdapter extends ArrayAdapter {
     //to store the
     private final List<Employee> employees;
 
+    //to get the layout in spinner
+    int layout;
+
 
 
 
@@ -26,6 +29,7 @@ public class CustomListAdapter extends ArrayAdapter {
     public CustomListAdapter(Activity context, List<Employee> employees, int layout){
         super(context, layout);
 
+        this.layout = layout;
         this.context = context;
         this.employees = employees;
     }
@@ -38,7 +42,7 @@ public class CustomListAdapter extends ArrayAdapter {
     public View getView(int position, View view, ViewGroup parent){
 
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.linearlayout_row, null, true);
+        View rowView = inflater.inflate(layout, null, true);
 
         //this code gets references to objects in the linearlayout_row.xml file
         ImageView imageView = (ImageView) rowView.findViewById(R.id.imageViewID);
