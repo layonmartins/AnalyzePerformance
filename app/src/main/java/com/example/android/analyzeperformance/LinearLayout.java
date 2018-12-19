@@ -150,6 +150,15 @@ public class LinearLayout extends AppCompatActivity {
             }
         });
 
+        //scroll top instantly
+        final Button buttonTop = findViewById(R.id.btnScrollTop);
+        buttonTop.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                listView.setSelectionAfterHeaderView();
+            }
+        });
+
         //Listening if the listView arrived at the last item:
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
 
