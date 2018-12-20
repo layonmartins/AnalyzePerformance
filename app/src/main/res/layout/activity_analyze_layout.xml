@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LinearLayout"
+    tools:context=".AnalyzeLayout"
     android:orientation="vertical">
 
     <Spinner
@@ -41,38 +41,47 @@
     </ListView>
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        >
         <TextView
+            android:id="@+id/txtNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:text="Number: "
+            android:layout_alignBaseline="@id/edtNumber"
             android:textSize="20sp"/>
         <EditText
             android:id="@+id/edtNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
             android:inputType="number"
             android:textSize="24sp"
             android:text="10"
+            android:layout_toRightOf="@id/txtNumber"
+            android:maxLength="5"
             />
         <Button
             android:id="@+id/btnScroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Scroll Down"/>
+            android:text="Scroll Down"
+            android:layout_toLeftOf="@id/btnScrollTop"/>
 
         <Button
             android:id="@+id/btnScrollTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Top"/>
-    </LinearLayout>
+            android:text="Top"
+            android:textColor="#ffffff"
+            android:background="@drawable/btn_top"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginRight="-20dp"/>
+    </RelativeLayout>
 
 </LinearLayout>

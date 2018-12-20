@@ -3,7 +3,6 @@ package com.example.android.analyzeperformance;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -20,7 +19,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinearLayout extends AppCompatActivity {
+public class AnalyzeLayout extends AppCompatActivity {
 
     //Int layout
     //Linear = 0, Relative = 1, Constraint = 2
@@ -66,10 +65,19 @@ public class LinearLayout extends AppCompatActivity {
 
         editText = (EditText) findViewById(R.id.edtNumber);
         n = Integer.parseInt(editText.getText().toString());
-        List<Employee> employees = getEmployees(n);
-        myAdapter = new CustomListAdapter(this, employees, getLayout(layout));
-        listView = (ListView) findViewById(R.id.listViewID);
-        listView.setAdapter(myAdapter);
+        if(n > 0) {
+            List<Employee> employees = getEmployees(n);
+            myAdapter = new CustomListAdapter(this, employees, getLayout(layout));
+            listView = (ListView) findViewById(R.id.listViewID);
+            listView.setAdapter(myAdapter);
+        } else {
+            //if number of employees is less than 0 show a toast
+            Context context = getApplicationContext();
+            CharSequence text = "The minimum number of employees should be 1";
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
     private int getLayout(int layout){
@@ -88,7 +96,7 @@ public class LinearLayout extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_linear_layout);
+        setContentView(R.layout.activity_analyze_layout);
 
         //first called to generate a List
         generateList(layout_ID);
